@@ -6,7 +6,9 @@ The next versions will add some features.
 
 ## Install
 npm install -g fa-react-cli
+
 -or-
+
 npx install fa-react-cli
 
 
