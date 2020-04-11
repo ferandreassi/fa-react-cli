@@ -17,22 +17,20 @@ let exitCode = 1;
 (async () => {
   await initializeApp.initializeApp();
 
-  //Get params
   try {
+    //Work with params
     let paramsObject = await getParams.getParams();
     let verifiedParams = await checkParams.checkParams(paramsObject);
-    if (verifiedParams) {
-      //Create file
-      try{
-        await fileController.createFile(paramsObject);
-        //End program
-        await endApp.endApp(exitCode);
-      }catch(e){
-        throw new Error('File create error');
-      }
-    } else {
+    if (!verifiedParams) {
       throw new Error('Params Error');
     }
+
+    //Create file
+    await fileController.createFile(paramsObject);
+
+    //End program
+    await endApp.endApp(exitCode);
+    
   } catch (e) {
     errorHandler.errorHandler(e);
     exitCode = 0; 

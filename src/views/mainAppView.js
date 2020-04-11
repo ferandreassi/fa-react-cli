@@ -17,13 +17,14 @@ const endAppView = async () => {
 
 const successMessage = async (message) => {
   console.log('');
-  console.log('\x1b[42;1m %s \x1b[0m', message);
+  console.log('\x1b[42;1m \x1b[0m', message);
+
   console.log('');
 };
 
 const errorMessage = async (message) => {
   console.log('');
-  console.log('\x1b[41m%s\x1b[0m', ' ERROR! - ' + message);
+  console.log('\x1b[41m \x1b[0m', 'ERROR! - ' + message);
   console.log('');
 };
 

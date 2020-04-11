@@ -1,4 +1,5 @@
 var fs = require('fs');
+mainAppView = require('../views/mainAppView');
 
 const createFile = async (paramsObject) => {
   let fileContent = null;
@@ -43,10 +44,12 @@ export default ${paramsObject.className};
     fileContent = classFileContent;
   }
   
-  fs.writeFileSync(paramsObject.fileName, fileContent);
-  //Move to a fx
-  console.log('');
-  console.log('\u001b[42;1m %s \x1b[0m', ' File Created Succesfully! ');
+  try{
+    fs.writeFileSync(paramsObject.fileName, fileContent);
+    mainAppView.successMessage('File Created Succesfully!');
+  }catch(e){
+    throw new Error('File create error');
+  }
 };
 
 exports.createFile = createFile;
