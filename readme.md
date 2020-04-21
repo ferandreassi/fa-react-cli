@@ -9,7 +9,7 @@ npm install -g fa-react-cli
 
 -or-
 
-npx install fa-react-cli
+npx fa-react-cli
 
 
 ## Usage
